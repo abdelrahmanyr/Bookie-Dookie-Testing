@@ -1,0 +1,20 @@
+[2026-04-29 01:08:39] Starting test runner
+[2026-04-29 01:08:42] STEP: Run all tests
+[2026-04-29 01:08:42] COMMAND: d:\VMU\SW Testing\Lab 2\Bookie_Dookie\Bookie_Dookie_Dj\.venv\Scripts\python.exe -m pytest -vv
+[2026-04-29 01:08:42] CWD: d:\VMU\SW Testing\Lab 2\Bookie_Dookie\Bookie_Dookie_Dj
+[2026-04-29 01:08:48] Starting test runner
+[2026-04-29 01:08:50] STEP: Run all tests
+[2026-04-29 01:08:50] COMMAND: d:\VMU\SW Testing\Lab 2\Bookie_Dookie\Bookie_Dookie_Dj\.venv\Scripts\python.exe -m pytest -vv
+[2026-04-29 01:08:50] CWD: d:\VMU\SW Testing\Lab 2\Bookie_Dookie\Bookie_Dookie_Dj
+[2026-04-29 01:08:58] EXIT CODE: 0
+[2026-04-29 01:08:58] COMMAND: C:\Program Files\nodejs\npm.CMD test -- --runInBand --json --outputFile=d:\VMU\SW Testing\Lab 2\jest-results.json
+[2026-04-29 01:08:58] CWD: d:\VMU\SW Testing\Lab 2\Bookie-Dookie
+[2026-04-29 01:08:59] EXIT CODE: 0
+[2026-04-29 01:26:49] Starting test runner
+[2026-04-29 01:26:54] STEP: Run all tests
+[2026-04-29 01:26:54] COMMAND: d:\VMU\SW Testing\Lab 2\Bookie_Dookie\Bookie_Dookie_Dj\.venv\Scripts\python.exe -m pytest -vv
+[2026-04-29 01:26:54] CWD: d:\VMU\SW Testing\Lab 2\Bookie_Dookie\Bookie_Dookie_Dj
+[2026-04-29 01:27:04] EXIT CODE: 0
+[2026-04-29 01:27:04] COMMAND: C:\Program Files\nodejs\npm.CMD test -- --runInBand --json --outputFile=d:\VMU\SW Testing\Lab 2\jest-results.json
+[2026-04-29 01:27:04] CWD: d:\VMU\SW Testing\Lab 2\Bookie-Dookie
+[2026-04-29 01:27:05] EXIT CODE: 0
