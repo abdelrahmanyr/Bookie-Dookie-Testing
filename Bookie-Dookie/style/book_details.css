@@ -1,0 +1,67 @@
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+}
+.book-name{
+    text-align: center;
+}
+
+.borrowed-container{
+    width: 326px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.borrowed-container .borrowed button{
+    border-radius: 0%;
+    border-bottom-left-radius: 36px;
+    width: 229px;
+    height: 58px;
+}
+
+.borrowed-container .borrowed.active {
+    background-color: rgba(255, 101, 0, 0.23); 
+    color: white;
+}
+
+
+
+.description{
+    width: 790px;
+    height: 377px;
+    padding-right: 80px;
+}
+
+.description h2{
+    padding-bottom: 20px;
+}
+.description p{
+    line-height: 2;
+}
+
+.det-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 4em;
+    flex-wrap: wrap;
+    margin-left: 40px;
+}
+
+.book-left {
+    height: 493px;
+    width: 327px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.description {
+    flex: 1;
+}
+

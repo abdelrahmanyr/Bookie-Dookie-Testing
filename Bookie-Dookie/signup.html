@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+    <link rel="stylesheet" href="style/signup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Exo:ital,wght@0,100..900;1,100..900&family=Murecho:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <title>SignUp Page</title>
+</head>
+
+<body>
+    
+    <div class="signUp-container">
+        <div class="shadow_ellipse" id="signup_ellipse1"></div>
+        <div class="shadow_ellipse" id="signup_ellipse2"></div>
+        
+        <div class="left-section">
+            <img src="assets/signup_full.png">
+        </div>
+        
+        <div class="right-section">
+            <h1>Create an account</h1>
+            <form id = "signup-form">
+                <div class="name" >
+                    <input id = "first-name" type = "text" placeholder="First Name" required>
+                    <input id = "last-name" type = "text" placeholder="Last Name" required>
+                    
+                </div>
+                
+                <div class="form">
+                    <input id="email" type = "email" placeholder="Email" required>
+                </div>
+                
+                
+                <div class="form">
+                    <input id="user-name" type = "text" placeholder="Username" required>
+                </div>
+                
+                <div class="form">
+                    <input id="password" type = "password" placeholder="Password" required>
+                </div>
+
+                <div class="form">
+                    <input id="confirmPass" type = "password" placeholder="Confirm Password" required>
+                </div>
+                
+                <div class="toggle_container">
+                    <label>User</label>
+                    
+                    <label class="switch">
+                        <input type="checkbox" id="roleToggle">
+                        <span class="slider"></span>
+                    </label>
+                    
+                    <label>Admin</label>
+                </div>
+                <p>
+                    Already have an account? <a href="login.html">Log in</a>
+                </p>
+                <button class="signup_button" type="submit" id = "sign_bnt"><a href="signup.html">Sign up</a></button> 
+            </form>  
+        </div>
+        
+    </div>
+    
+    
+</body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
+<script src="scripts/users.js" defer></script>
+
+
+</html>

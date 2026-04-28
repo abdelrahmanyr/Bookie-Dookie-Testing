@@ -1,0 +1,83 @@
+[
+    {
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "category": "Fiction",
+        "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg/960px-To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg?20190729060537",
+        "description": "A novel about the serious issues of rape and racial inequality narrated by young Scout Finch.",
+        "book_state": true
+    },
+    {
+        "title": "1984",
+        "author": "George Orwell",
+        "category": "Dystopian",
+        "cover_url": "https://m.media-amazon.com/images/I/61HkdyBpKOL._SL1200_.jpg",
+        "description": "A dystopian social science fiction novel and cautionary tale about the dangers of totalitarianism.",
+        "book_state": true
+    },
+    {
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "category": "Romance",
+        "cover_url": "https://m.media-amazon.com/images/I/712P0p5cXIL._SL1400_.jpg",
+        "description": "A romantic novel that charts the emotional development of Elizabeth Bennet, who learns the error of making hasty judgments.",
+        "book_state": true
+    },
+    {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "category": "Classic",
+        "cover_url": "https://m.media-amazon.com/images/I/81TLiZrasVL._SY466_.jpg",
+        "description": "A novel about the American dream and the roaring twenties, centered around the mysterious Jay Gatsby.",
+        "book_state": true
+    },
+    {
+        "id": "5",
+        "title": "Moby Dick",
+        "author": "Herman Melville",
+        "category": "Adventure",
+        "cover_url": "https://m.media-amazon.com/images/I/91xNmlf86yL._SL1500_.jpg",
+        "description": "The narrative of Captain Ahab's obsessive quest to seek revenge on the white whale, Moby Dick.",
+        "book_state": "available"
+    },
+    {
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "category": "Fiction",
+        "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/The_Catcher_in_the_Rye_%281951%2C_first_edition_cover%29.jpg/800px-The_Catcher_in_the_Rye_%281951%2C_first_edition_cover%29.jpg",
+        "description": "A story about teenage rebellion and alienation, narrated by the iconic Holden Caulfield.",
+        "book_state": true
+    },
+    {
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "category": "Fantasy",
+        "cover_url": "https://m.media-amazon.com/images/I/81uEDUfKBZL._SL1500_.jpg",
+        "description": "A fantasy novel about Bilbo Baggins' journey to win a share of the treasure guarded by Smaug the dragon.",
+        "book_state": true
+    },
+    {
+        "title": "War and Peace",
+        "author": "Leo Tolstoy",
+        "category": "Historical",
+        "cover_url": "https://m.media-amazon.com/images/I/81W6BFaJJWL._SL1500_.jpg",
+        "description": "A novel that intertwines the lives of families during the Napoleonic Wars in Russia.",
+        "book_state": true
+    },
+    {
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "category": "Philosophical",
+        "cover_url": "https://diwanegypt.com/wp-content/uploads/2020/08/9780007155668-1.jpg",
+        "description": "A philosophical novel about a shepherd's journey to find treasure and discover his personal legend.",
+        "book_state": true
+    },
+    {
+        "title": "The Lord of the Rings",
+        "author": "J.R.R. Tolkien",
+        "category": "Fantasy",
+        "cover_url": "https://m.media-amazon.com/images/I/61mn09OvTQL._SL1500_.jpg",
+        "description": "An epic fantasy novel about the quest to destroy the One Ring and save Middle-earth.",
+        "book_state": true
+    }
+]

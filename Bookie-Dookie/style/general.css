@@ -1,0 +1,395 @@
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar-track {
+    background: #FF6500;
+}
+
+body{
+    background-color: #070F19;
+    font-family: Murecho, sans-serif;
+    color: white;
+    padding-top: 1.5%;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+    min-height: 100vh; /* Ensure the body takes up the full viewport height */
+    margin: 0;
+}
+
+.bree-serif-regular {
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+ul li {
+    list-style: none;
+    white-space: nowrap;
+
+}
+
+a {
+    all: unset;
+}
+
+* {
+    text-decoration: none;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    padding: 0px;
+}
+
+header {
+    /* overflow: hidden; */
+}
+
+header > .shadow_ellipse {
+    top: 0;
+    left: 0;
+    z-index: -1;
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background-color: #1E3E62;
+    filter: blur(100px);
+    opacity: 30%;
+    border-radius: 50%;
+}
+
+
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2%;
+    gap: 1%;
+}
+
+.nav_buttons > ul a:hover{
+    color: #FF6500;
+    border-bottom: 1px solid #FF6500;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+.logo_cont{
+    margin: 36;
+    border: 2.5px solid #1E3E62;
+    /* width: 160px; */
+    /* max-width: 160px; */
+    height: 60px;
+    border-radius: 76px;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5%;
+
+}
+
+.logo_cont > a {
+    cursor: pointer;
+}
+
+.logo_cont > a > img{
+    width: 100px;
+
+}
+
+.search_bar > a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.search_bar {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.search_form {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.search_bar input{
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px 70px 10px 12px;
+    align-items: center;
+    border-radius: 20px;
+    
+}
+.search_form input{
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px 70px 10px 12px;
+    align-items: center;
+    border-radius: 20px;
+    
+}
+
+.search_bar button{
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    padding: 0px 10px;
+    cursor: pointer;
+    background-image:unset;
+}
+
+.search_form button {
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    padding: 0px 10px;
+    cursor: pointer;
+    background-image:unset;
+}
+
+.search_bar button:hover{
+    background-image: none;
+}
+.search_form button:hover{
+    background-image: none;
+}
+
+.search_bar button img{
+    width: 20px;
+    height: 20px;
+}
+
+.nav_buttons {
+    border: 2.5px solid #1E3E62;
+    padding: 0 2%;
+    width: 100%;
+    height: 60px;
+    border-radius: 76px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0%;
+}
+
+.nav_buttons > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10%
+}
+
+.login_btn > button {
+    background: fixed;
+}
+
+.login_btn > button:hover {
+    background-image: none;
+    opacity: 80%;
+    transition: all 0.3s ease-in-out;
+}
+
+.profile_btn {
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+/* Dropdown container */
+.profile_menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dropdown button (profile icon) */
+.profile_btn img {
+    width: 32px;
+    cursor: pointer;
+}
+
+/* Dropdown content */
+.profile_dropdown {
+    width: 200px;
+    position: absolute;
+    top: 140%; /* Adjust position below the profile button */
+    right: 0;
+    z-index: 999;
+    display: none;
+    background: rgba(29, 38, 54, 0.9);
+    border-radius: 16px;
+    padding: 16px 0; /* Adjust padding for better spacing */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Add shadow for better visibility */
+    max-height: 0px;
+    transition: max-height 2s;
+}
+
+.profile_dropdown.show {
+    display: block;
+    transition: max-height 0.5s;
+    max-height: 500px; /* Adjust this value based on the number of items */
+}
+
+/* Dropdown list items */
+.profile_dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.profile_dropdown li {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s ease;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.profile_dropdown li a {
+    width: 100%;
+}
+
+.profile_dropdown li a .menu_item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* gap: 10%; */
+}
+
+.profile_dropdown li:hover {
+    transform: translate(5px);
+}
+
+/* Dropdown icons inside list items */
+.profile_dropdown li img {
+    width: 18px;
+    height: 18px;
+}
+
+
+
+.line{
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2); /* Light divider color */
+    margin: 8px 20px; /* Add spacing around the divider */
+    border: none;
+}
+
+
+.profile_btn:hover{
+    cursor: pointer;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    justify-content: center;
+    align-items: center;
+    left: 10px;
+}
+
+main {
+    padding: 3% 0;
+    flex: 1; /* Allow the main content to grow and push the footer down */
+    height: 100%;
+    min-height: 100%;
+}
+
+button {
+    text-decoration: none;
+    border-radius: 36px;
+    background-image: linear-gradient(to bottom, #FF6500, #993D00);
+    color: white;
+    border: 1px solid #FF6500;
+    padding: 10px 30px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+button:hover {
+    background-image: linear-gradient(to bottom, #993D00, #FF6500);
+    opacity: 80%;
+    transition: all 0.3s ease-in-out;
+}
+
+
+footer {
+    display: flex;
+    flex-direction: row;
+    gap: 20%;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    position: relative; /* Ensure the footer is part of the document flow */
+    z-index: 1; /* Ensure it does not overlap other elements */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer_logo > img {
+    width: 180px;
+    margin: 0 50%;
+    padding-bottom: 20%;
+}
+
+.rights {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    color: #909090;
+}
+.footer_content > * {
+    margin-bottom: 5%;
+}
+
+.pls, .noBook {
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    margin: 1rem auto 0 auto;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: #909090;
+}

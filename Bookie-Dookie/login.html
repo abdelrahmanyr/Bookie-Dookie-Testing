@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+
+    <link rel="stylesheet" href="style/login.css">
+    <link rel="stylesheet" href="style/Alerts.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Exo:ital,wght@0,100..900;1,100..900&family=Murecho:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    
+    <title>Login Page</title>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="shadow_ellipse" id="login_ellipse1"></div>
+        <div class="shadow_ellipse" id="login_ellipse2"></div>
+        
+        <div class="left-section">
+            <img src="assets/signup_full.png">
+        </div>
+        
+        <div class="right-section">
+            <h1>Log in</h1>
+            <form id = "login-form">
+                
+                <div class="form">
+                    <input type = "text" id = "Username" placeholder="Username" required>
+                </div>
+                
+                <div class="form">
+                    <input type = "password" id = "password" placeholder="Password" required>
+                    <!-- <i class = "toggle-password" id = "togglepassword"><img src = "icons/eye.svg"></i> -->
+                </div>
+                
+                <p>
+                    Don't have an account? <a href="signup.html">Sign up</a>
+                </p>
+                <button class="login_button" id = "login_bnt"><a>Log in</a></button> 
+            </form>  
+        </div>
+    </div>
+    
+
+    <div id="customAlert" class="custom-alert hidden">
+        <div class="alert-content">
+            <p id="alertMessage"></p>
+            <button onclick="closeAlert()">OK</button>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
+<script src = "scripts/users.js" defer></script>
+
+
+</html>

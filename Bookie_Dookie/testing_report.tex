@@ -1,0 +1,243 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{array}
+\renewcommand{\arraystretch}{1.2}
+
+\title{Bookie Dookie Testing Report}
+\author{Senior QA Engineer}
+\date{April 29, 2026}
+
+\begin{document}
+\begin{titlepage}
+\centering
+{\Large Lab 2 Task: Automated Software Testing and Analysis}\par
+\vspace{0.8cm}
+{\Large QA Test Report: Bookie Dookie Web Application}\par
+\vspace{1.2cm}
+{\large Student Name: Abdelrahman Abdelhafez}\par
+\vspace{0.4cm}
+{\large Professor Name: Gintarė Kaminskienė}\par
+\vspace{0.8cm}
+{\large April 28, 2026}\par
+\vfill
+\thispagestyle{empty}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+This report presents a professional QA automation submission for a full-stack web application. Automated testing is used to ensure functional correctness, regression safety, and consistent behavior across backend APIs and frontend logic.
+
+\section{Testing Framework Justification}
+\textbf{Pytest + pytest-django} were selected for Django compatibility, fixture-driven test isolation, and scalable reporting. The framework supports database rollbacks and clean Arrange-Act-Assert (AAA) structure.\\
+\textbf{Jest} was selected for fast execution of JavaScript logic tests with isolated DOM emulation, making it suitable for unit-level frontend behavior.
+
+\section{Mapping to Requirements}
+\begin{itemize}
+    \item \textbf{Unit Testing}: CRUD operations and model constraints (create, update, delete, boundary checks).
+    \item \textbf{Integration Testing}: API list/detail endpoints and response schema consistency. Search behavior is validated on the frontend because the backend provides list retrieval only.
+    \item \textbf{Error Handling}: Missing/invalid inputs, non-existent IDs, and large payload behavior.
+\end{itemize}
+
+\section{Test Design}
+All tests follow the AAA pattern with explicit Arrange, Act, and Assert steps. Isolation is enforced via pytest-django database fixtures and APIClient usage. Each test is independent and deterministic.
+
+\section{Project File Structure (Tests)}
+The workspace is split into backend and frontend directories. Test cases are maintained in the following files:
+\begin{itemize}
+    \item \textbf{Backend tests (pytest)}: \texttt{Bookie\_Dookie/Bookie\_Dookie\_Dj/tests/test\_unit.py}, \texttt{test\_integration.py}, \texttt{test\_errors.py}.
+    \item \textbf{Backend fixtures}: \texttt{Bookie\_Dookie/Bookie\_Dookie\_Dj/tests/conftest.py} defines shared data and authenticated clients.
+    \item \textbf{Frontend tests (Jest)}: \texttt{Bookie-Dookie/tests/book\_features.test.js} and \texttt{admin.test.js}.
+    \item \textbf{Test runner}: \texttt{run\_tests.py} controls execution and logging.
+    \item \textbf{Test configuration}: \texttt{Bookie\_Dookie/Bookie\_Dookie\_Dj/pytest.ini}, \texttt{Bookie-Dookie/jest.config.js}, and \texttt{Bookie-Dookie/package.json}.
+\end{itemize}
+To add or modify test cases, edit the relevant backend or frontend test files listed above. Fixtures should be updated only when shared setup needs to change.
+
+\section{Test Cases (Detailed)}
+\textbf{Backend Unit Tests}
+\begin{itemize}
+    \item Create book with valid data and verify persisted fields.
+    \item Create duplicate books with case/spacing variations.
+    \item Boundary validation at maximum field lengths (accept 100/200, reject 101+).
+    \item Special characters accepted in title/author/category.
+    \item Partial update rejected when required fields are missing.
+    \item Delete existing book and verify removal.
+\end{itemize}
+
+\textbf{Backend Integration Tests}
+\begin{itemize}
+    \item Retrieve all books and validate list length.
+    \item Retrieve single book by ID.
+    \item Validate response schema for list endpoint (field consistency).
+    \item Dashboard user list retrieval.
+    \item Borrowing list filtered by authenticated user.
+    \item Empty book\_id query returns full list.
+\end{itemize}
+
+\textbf{Backend Error Handling}
+\begin{itemize}
+    \item Missing multiple required fields in create request.
+    \item Invalid book ID (non-numeric) and whitespace-only ID (known behavior).
+    \item Non-existent IDs for delete and update.
+    \item Extremely large description payload.
+    \item Whitespace-only inputs rejected.
+\end{itemize}
+
+\textbf{Frontend Logic Tests}
+\begin{itemize}
+    \item Search is case-insensitive.
+    \item Empty query returns all items.
+    \item No match returns empty results.
+    \item Pagination: first/last page button states.
+    \item Pagination: empty dataset handling (documented current behavior).
+\end{itemize}
+
+\section{Edge Case Analysis}
+\begin{itemize}
+    \item \textbf{Overlong strings}: validate maximum field constraints to prevent DB or UI overflow.
+    \item \textbf{Whitespace-only inputs}: prevent silent acceptance of unusable values.
+    \item \textbf{Non-numeric IDs}: reveal API robustness for invalid query parameters.
+    \item \textbf{Large payloads}: confirm stability with higher-than-average inputs.
+    \item \textbf{Empty dataset pagination}: ensures UI state remains predictable when no records exist.
+\end{itemize}
+
+\section{Test Case Matrix}
+The following tables document each automated test case, including input values, expected outcome, actual outcome, and the testing module used.
+
+\subsection{Backend Test Cases (pytest)}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{2.4cm}|>{\raggedright\arraybackslash}p{1.8cm}|>{\raggedright\arraybackslash}p{3.6cm}|>{\raggedright\arraybackslash}p{2.6cm}|>{\raggedright\arraybackslash}p{2.0cm}|>{\raggedright\arraybackslash}p{1.4cm}|>{\raggedright\arraybackslash}p{1.2cm}|}
+\hline
+\textbf{Test Case} & \textbf{Module} & \textbf{Input Values} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Tool} & \textbf{Status} \\ \hline
+\endfirsthead
+\hline
+\textbf{Test Case} & \textbf{Module} & \textbf{Input Values} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Tool} & \textbf{Status} \\ \hline
+\endhead
+Add book missing fields & Books API & title, author, cover\_url only & 400 validation error & 400 (validation errors) & pytest & PASS \\ \hline
+Delete non-existent book & Books API & book\_id=9999 & 404 not found & 404 Not Found & pytest & PASS \\ \hline
+Borrowings empty list & Users API & no borrowed records & empty list & [] (length=0) & pytest & PASS \\ \hline
+Get non-existent book & Books API & book\_id=9999 & empty serializer fields & 200 with empty fields & pytest & PASS \\ \hline
+Missing multiple fields & Books API & title only & 400 validation error & 400 (missing fields) & pytest & PASS \\ \hline
+Invalid ID delete (current) & Books API & book\_id=not-an-int & raises ValueError & ValueError thrown & pytest & PASS \\ \hline
+Edit non-existent ID & Books API & book\_id=9999 + full payload & 404 not found & 404 Not Found & pytest & PASS \\ \hline
+Delete already deleted & Books API & delete same ID twice & 404 on second delete & 404 Not Found & pytest & PASS \\ \hline
+Invalid ID expected 400 & Books API & book\_id=not-an-int & 400 expected & ValueError thrown & pytest & FAIL \\ \hline
+Whitespace ID expected list & Books API & book\_id=" " & list of books & ValueError thrown & pytest & FAIL \\ \hline
+Get book list & Books API & no params & list length=2 & 200 list (length=2) & pytest & PASS \\ \hline
+Get book by ID & Books API & book\_id=valid & correct book data & 200 with matching fields & pytest & PASS \\ \hline
+Dashboard users list & Dashboard API & none & list of users & 200 list (>=2 users) & pytest & PASS \\ \hline
+Borrowings filtered & Users API & user has 1 borrowing & list length=1 & 200 list (length=1) & pytest & PASS \\ \hline
+Empty book\_id query & Books API & book\_id="" & full list returned & 200 list (length=2) & pytest & PASS \\ \hline
+Response schema fields & Books API & list endpoint & fixed field set & keys match schema & pytest & PASS \\ \hline
+Whitespace query ValueError & Books API & book\_id=" " & ValueError raised & ValueError thrown & pytest & PASS \\ \hline
+Add book valid data & Books API & normal payload & 201 created & 201 Created & pytest & PASS \\ \hline
+Edit book full update & Books API & full payload & 200 updated & 200 Updated & pytest & PASS \\ \hline
+Delete book success & Books API & valid ID & 200 deleted & 200 Deleted & pytest & PASS \\ \hline
+Duplicate username & Users API & same username twice & 400 on second & 400 duplicate username & pytest & PASS \\ \hline
+Duplicate books case/space & Books API & "Dune" + "  DUNE " & both saved & 201 + 201 created & pytest & PASS \\ \hline
+Overlong fields rejected & Books API & 101/201 chars & 400 validation error & 400 (max length) & pytest & PASS \\ \hline
+Max length accepted & Books API & 100/200 chars & 201 created & 201 Created & pytest & PASS \\ \hline
+Special characters & Books API & symbols in fields & 201 created & 201 Created & pytest & PASS \\ \hline
+Whitespace-only inputs & Books API & spaces in fields & 400 validation error & 400 (blank values) & pytest & PASS \\ \hline
+Partial update rejected & Books API & title only & 400 validation error & 400 (required fields) & pytest & PASS \\ \hline
+Large description & Books API & description 5000 chars & 201 created & 201 Created & pytest & PASS \\ \hline
+\end{longtable}
+
+\subsection{Frontend Test Cases (Jest)}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{2.8cm}|>{\raggedright\arraybackslash}p{1.8cm}|>{\raggedright\arraybackslash}p{3.6cm}|>{\raggedright\arraybackslash}p{2.4cm}|>{\raggedright\arraybackslash}p{1.6cm}|>{\raggedright\arraybackslash}p{1.0cm}|>{\raggedright\arraybackslash}p{1.0cm}|}
+\hline
+\textbf{Test Case} & \textbf{Module} & \textbf{Input Values} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Tool} & \textbf{Status} \\ \hline
+\endfirsthead
+\hline
+\textbf{Test Case} & \textbf{Module} & \textbf{Input Values} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Tool} & \textbf{Status} \\ \hline
+\endhead
+Search filters fields & book\_features.js & query="clean" & only matching book & 1 match returned & Jest & PASS \\ \hline
+Search no match & book\_features.js & query="missing" & empty list & [] returned & Jest & PASS \\ \hline
+Search empty query & book\_features.js & query="" & all books returned & full list returned & Jest & PASS \\ \hline
+Search case-insensitive & book\_features.js & query="dUnE" & matches Dune & Dune returned & Jest & PASS \\ \hline
+Pagination base state & admin.js & totalUsers=10, page=1 & Page 1 of 1, buttons disabled & prev=true, next=true & Jest & PASS \\ \hline
+Pagination empty dataset & admin.js & totalUsers=0, page=1 & Page 1 of 0, next disabled & next=false (known issue) & Jest & FAIL \\ \hline
+Pagination last page & admin.js & totalUsers=30, page=3 & Page 3 of 3, next disabled & prev=false, next=true & Jest & PASS \\ \hline
+\end{longtable}
+
+\section{Test Execution Procedure}
+\begin{enumerate}
+    \item Install backend dependencies: \texttt{pip install -r requirements.txt}.
+    \item Install backend test dependencies: \texttt{pip install -r requirements-test.txt}.
+    \item Install frontend dependencies: \texttt{npm install} (portable Node.js in \texttt{.tools/node}).
+    \item Run backend tests (verbose): \texttt{pytest -vv}.
+    \item Run backend coverage: \texttt{pytest -vv --cov=Books --cov=Users --cov=Dashboard --cov-report=term-missing}.
+    \item Run frontend tests with JSON output: \texttt{npm test -- --runInBand --json --outputFile=jest-results.json}.
+    \item Optional: run \texttt{python run\_tests.py} for step logging to \texttt{test\_run.log}.
+    \item Run known-issue backend tests only: \texttt{pytest -vv -m known\_issue}.
+    \item Run known-issue frontend tests only: \texttt{npm test -- --runInBand --testPathPattern=known\_issues.test.js --testPathIgnorePatterns=}.
+\end{enumerate}
+
+\section{Test Execution Results}
+\begin{itemize}
+    \item Backend baseline run: 26 passed, 2 xfailed, 0 failed
+    \item Backend known-issue run: 0 passed, 2 failed
+    \item Frontend baseline run: 7 passed, 0 failed
+    \item Frontend known-issue run: 0 passed, 1 failed
+\end{itemize}
+
+\section{Execution Output (Evidence)}
+\textbf{Pytest Summary}\
+\begin{verbatim}
+26 passed, 2 xfailed in 9.42s
+\end{verbatim}
+
+\textbf{Pytest Known-Issue Summary}\
+\begin{verbatim}
+2 failed, 28 deselected in 1.20s
+\end{verbatim}
+
+\textbf{Coverage Summary}\
+\begin{verbatim}
+TOTAL                                                             266     53    80%
+\end{verbatim}
+
+\textbf{Jest Summary}\
+\begin{verbatim}
+Test Suites: 2 passed, 2 total
+Tests:       7 passed, 7 total
+\end{verbatim}
+
+\textbf{Jest Known-Issue Summary}\
+\begin{verbatim}
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+\end{verbatim}
+
+\section{Coverage Analysis}
+Total backend coverage is \textbf{80\%}. Gaps are concentrated in authentication-oriented user views and unused default test files. Core CRUD and list paths are fully exercised.
+
+\section{Issues Encountered and Fixes}
+\begin{itemize}
+    \item \textbf{Invalid book\_id:} backend raises \texttt{ValueError} for non-numeric IDs; documented as \texttt{xfail} to reflect expected failure.
+    \item \textbf{Whitespace book\_id:} same behavior documented as \texttt{xfail}.
+    \item \textbf{Empty dataset pagination:} current UI allows next button; test asserts observed behavior and reports as a known UI limitation.
+\end{itemize}
+
+\section{System Reliability Assessment}
+The system demonstrates stable CRUD and list behaviors with strong backend coverage and validated frontend search/pagination logic. Known issues are constrained to input validation robustness and UI pagination edge cases, which are documented for future remediation.
+
+\section{How to Run Tests}
+Run the menu script from the workspace root:
+\begin{verbatim}
+python run_tests.py
+\end{verbatim}
+Backend tests directly:
+\begin{verbatim}
+cd Bookie_Dookie/Bookie_Dookie_Dj
+pytest -vv --cov=Books --cov=Users --cov=Dashboard --cov-report=term-missing
+\end{verbatim}
+Frontend tests:
+\begin{verbatim}
+cd Bookie-Dookie
+npm test
+\end{verbatim}
+
+\end{document}

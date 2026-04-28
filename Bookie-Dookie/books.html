@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookie Dookie</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+    <link rel="stylesheet" href="style/general.css">    
+    <link rel="stylesheet" href="style/books.css">
+
+    <link rel="stylesheet" href="style/Alerts.css" />
+
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Exo:ital,wght@0,100..900;1,100..900&family=Murecho:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body class="home">
+    <header>
+        <div class="shadow_ellipse" id="_1_hero"></div>
+        <div class="shadow_ellipse" id="_2_hero"></div>
+    </header>
+
+    <nav>
+        <div class="logo_cont"> 
+            <a href=""><img src="assets/full_logo.svg" alt="Bookie Dookie Logo"></a>
+            
+        </div>
+
+
+        <div class="nav_buttons">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="mybooks.html">My Books</a></li>
+                <li><a href="wishlist.html">Wishlist</a></li>
+            </ul>
+            
+            <div class="icons">
+
+                <div class="search_bar">
+                    <a onclick="searchBar()"><img src="assets/search-button.svg" alt="Search"></a>
+                </div>
+                <form class="search_form">
+                    <input type="text" placeholder="Search for books...">
+                    <button type="submit"><img src="icons/search_vec.svg" alt="Search"></button>
+                </form>
+                <div class="login_btn">
+                    <button><a href="login.html" >Login</a></button>
+                </div>          
+            </div>              
+        </div>
+
+
+        <div class="signup_btn">
+            <button><a href="signup.html" >Sign Up</a></button> 
+            
+        </div>
+    </nav>
+
+    <main class = "hero">
+
+        <div class="books">
+            <h1>Books</h1>
+        </div>
+
+        <h2 class = "noBook"> No books currently available!</h2>
+
+
+        <div class="books-flex" id="available_books">
+            <!-- Book cards will be dynamically generated here -->
+        </div>
+    
+    </main>
+
+
+
+
+    <footer>
+        <div class="footer_logo">
+            <img src="assets/full_logo.svg" alt="Bookie Dookie Logo" class="logo">
+        </div>
+        <div class="footer_content">
+            <p>Find each and every book here, just join us and search for anything you'd like to read.</p>
+            <p class = "rights">&copy; 2023 Bookie Dookie. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="customAlert" class="custom-alert hidden">
+        <div class="alert-content">
+            <p id="alertMessage"></p>
+            <button onclick="closeAlert()">OK</button>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
+<script src = "scripts/index.js" defer></script>   
+<script src="scripts/book_features.js" defer></script>
+</html>

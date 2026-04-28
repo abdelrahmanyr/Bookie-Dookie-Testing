@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookie Dookie</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+    <link rel="stylesheet" href="style/dashboard.css">
+    
+    <link rel="stylesheet" href="style/Alerts.css" />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Exo:ital,wght@0,100..900;1,100..900&family=Murecho:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="shadow_ellipse" id="_1_hero"></div>
+        <div class="shadow_ellipse" id="_2_hero"></div>
+        <div class="shadow_ellipse" id="_3_hero"></div>
+    </header>
+
+    <aside>
+
+        <div class="logo_cont">
+            <a href="index.html" class="logo_link">
+                <img src = "assets/full_logo.svg" alt="Bookie Dookie Logo" class="logo">
+            </a>
+        </div>
+        
+        <div class="nav_btn">
+            <ul class="nav_list">
+                <li><a href="dashboard.html" class="nav_item"> <img src = "icons/dashboard.svg" alt="Dashboard" class = "nav_icon">Dashboard</a></li>
+                <li><a href="admin_books.html" class="nav_item"> <img src = "icons/books.svg" alt = "Books" class = "nav_icon">Books</a></li>
+                <li><a href="add_books.html" class="nav_item"> <img src = "icons/add_book.svg" alt = "nav_icon" class = "addbooksicon">Add Books</a></li>
+            </div>
+
+            <div class="logout_btn">
+                <a class="nav_item" onclick="logout()"> <img src = "icons/logout.svg" alt = "Logout" class = "nav_icon">Logout</a>
+            </div>
+        </aside>
+        <main class = "main">
+            
+            <h2 class = "main_title">Dashboard</h2>
+            <div class="info_cards">
+                <div class="card" id="totalusers">
+                    <div class="card_text">
+                        <p>Total Users</p>
+                        <h2 class = "totalusers_count">235</h2>
+                    </div>
+                <img src = "icons/total_users.svg" alt = "total_users" class = "card_icon">
+            </div>
+            <div class="card" id="totalbooks">
+                <div class="card_text">
+                    <p>Total Books</p>
+                    <h2 class = "totalbooks_count">555</h2>
+                </div>
+                <img src = "icons/total_books.svg" alt = "total_books" class = "card_icon">
+            </div>
+            <div class="card" id="totalborrowed">
+                <div class="card_text">
+                    <p>Borrowed Books</p>
+                    <h2 class = "totalborrowed_count">350</h2>
+                </div>
+                <img src = "icons/b_books.svg" alt = "total_borrowed" class = "card_icon">
+            </div>
+        </div>
+        <div class="currentusers">
+            <h2>Current Users</h2>
+            <div class="records">
+                <table class = "records_table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Yassin Elsawy</td>
+                            <td>yassinelffekhm</td>
+                            <td>elfekhm@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Abdelrahman Yasser</td>
+                            <td>pedroo</td>
+                            <td>pedroo@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Michael Brown</td>
+                            <td>michaelbrown</td>
+                            <td>michaelbrown@outlook.com</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>John Doe</td>
+                            <td>johndoe</td>
+                            <td>johndoe@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Jane Smith</td>
+                            <td>janesmith</td>
+                            <td>janesmith@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Jane Smith</td>
+                            <td>janesmith</td>
+                            <td>janesmith@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Jane Smith</td>
+                            <td>janesmith</td>
+                            <td>janesmith@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Jane Smith</td>
+                            <td>janesmith</td>
+                            <td>janesmith@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Jane Smith</td>
+                            <td>janesmith</td>
+                            <td>janesmith@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Jane Smith</td>
+                            <td>janesmith</td>
+                            <td>janesmith@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Jane Smith</td>
+                            <td>janesmith</td>
+                            <td>janesmith@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Jane Smith</td>
+                            <td>janesmith</td>
+                            <td>janesmith@gmail.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pages">
+                <p>8 of 235 pages</p>
+                <div class="paginators">
+                    <div class="arrow_cont">
+                        <img src = "icons/left.svg" alt = "left_arrow" class = "left_arrow"></i>
+                    </div>
+                    <div class="arrow_cont">
+                        <img src = "icons/right.svg" alt = "right_arrow" class = "right_arrow"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <div id="customAlert" class="custom-alert hidden">
+        <div class="alert-content">
+            <p id="alertMessage"></p>
+            <button onclick="closeAlert()">OK</button>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
+<script src="scripts/index.js" defer></script>
+<script src = "scripts/book_features.js" defer></script>
+<script src="scripts/admin.js" defer></script>
+</html>
